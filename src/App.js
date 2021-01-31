@@ -3,28 +3,28 @@ import NoMatch from './components/NoMatch';
 import Home from './components/Home';
 import BusinessNews from './components/BusinessNews';
 import BitcoinNews from './components/BitcoinNews'
-import { Route, NavLink, Switch } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route, Switch } from "react-router-dom";
 import BITCOIN from "./data/businessSeed";
-import BUSINESS from "./data/bitcoinSeedd";
+import BUSINESS from "./data/bitcoinSeed";
 import Data from "./services/data";
+
 
 function App() {
   // console.log(BITCOIN);
   // console.log(BUSINESS);
   console.log(Data());
-  return (
-    <div className="App">
+  return ( 
+    <Router>
+<div className="App">
       <nav>
-            <NavLink>
-              exact
-              to = {"/"}
-            
+            <NavLink exact to="/">
+                  
               Home
             </NavLink>
-            <NavLink to={"/BitcoinNews"}>
+            <NavLink to="/BitcoinNews">
               BitcoinNews
             </NavLink>
-            <NavLink to={"/BusinessNews"}>
+            <NavLink to="/BusinessNews">
               BusinessNews
             </NavLink>
       </nav>  
@@ -52,6 +52,7 @@ function App() {
         </Switch>
       </main>
     </div>
+    </Router>
   );
 }
 
